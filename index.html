@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Raiz - Futuro Sustentável</title>
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS E PALETA DE CORES --- */
+        :root {
+            --amarelo-principal: #FFD700;
+            --amarelo-ouro: #FFA500;
+            --amarelo-claro: #FFF8DC;
+            --verde-escuro: #1b4332;
+            --verde-folha: #2d6a4f;
+            --texto-escuro: #212529;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cinza-claro);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* --- 2. CABEÇALHO COMPLETO --- */
+        header {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--amarelo-principal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--branco);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--amarelo-principal);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--branco);
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* --- 1. BANNER IMPACTANTE --- */
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            padding: 0 20px;
+            border-bottom: 8px solid var(--amarelo-principal);
+        }
+
+        .hero-banner h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-banner h1 span {
+            color: var(--amarelo-principal);
+        }
+
+        .hero-banner p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .cta-btn {
+            background-color: var(--amarelo-principal);
+            color: var(--verde-escuro);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--amarelo-ouro);
+            transform: scale(1.05);
+        }
+
+        /* --- 3. QUATRO SEÇÕES DE CONTEÚDO (MAIN) --- */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--amarelo-principal);
+        }
+
+        .content-section:nth-child(even) {
+            flex-direction: row-reverse;
+            border-left: none;
+            border-right: 5px solid var(--verde-folha);
+        }
+
+        .content-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .content-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h2 {
+            font-size: 22px;
+            color: var(--verde-escuro);
+            margin-bottom: 15px;
+        }
+
+        .content-text p {
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: var(--amarelo-claro);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            border-left: 3px solid var(--amarelo-ouro);
+        }
+
+        /* --- 4. SEÇÃO DO QUIZ --- */
+        .quiz-section {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 60px auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .quiz-section h2 {
+            color: var(--amarelo-principal);
+            margin-bottom: 20px;
+        }
+
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background: var(--branco);
+            color: var(--texto-escuro);
+            border: 2px solid transparent;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            background-color: var(--amarelo-claro);
+            border-color: var(--amarelo-principal);
+        }
+
+        .option-btn.correct {
+            background-color: #2a9d8f !important;
+            color: white;
+        }
+
+        .option-btn.wrong {
+            background-color: #e63946 !important;
+            color: white;
+        }
+
+        .next-btn {
+            background-color: var(--amarelo-principal);
+            color: var(--verde-escuro);
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
+            display: none;
+        }
+
+        .score-container {
+            display: none;
+            font-size: 20px;
+        }
+
+        .score-container span {
+            color: var(--amarelo-principal);
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .restart-btn {
+            background-color: var(--branco);
+            color: var(--verde-escuro);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-banner h1 {
+                font-size: 2rem;
+            }
+            .content-section {
+                flex-direction: column !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Agro <span>Raiz</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#producao">Produção</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#quiz">Desafio</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar no site...">
+                <button onclick="alert('Funcionalidade de busca simulada!')">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner" id="home">
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>Descubra como a plantação de milho une alta produtividade, tecnologia de ponta e o respeito absoluto ao meio ambiente.</p>
+        <a href="#producao" class="cta-btn">Conhecer Práticas</a>
+    </section>
+
+    <main id="producao">
+        
+        <section class="content-section">
+            <div class="content-img">
+                <img src="https://images.unsplash.com/photo-1551009175-15bdf9dcb580?auto=format&fit=crop&q=80&w=600" alt="Plantação de milho verde sob o sol">
+            </div>
+            <div class="content-text">
+                <h2>1. O Ciclo do Milho e a Alta Produtividade</h2>
+                <p>A cultura do milho é um dos pilares da economia agrícola global. Do plantio à colheita, o manejo correto do solo e a escolha de sementes adaptadas garantem recordes de safra ano após ano, abastecendo os mercados interno e externo.</p>
+                <div class="highlight-box">
+                    O milho é a base para mais de 3.500 produtos, desde alimentos até biocombustíveis.
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sustentabilidade">
+            <div class="content-img">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=600" alt="Solo protegido por palhada">
+            </div>
+            <div class="content-text">
+                <h2>2. Plantio Direto: Conservação em Primeiro Lugar</h2>
+                <p>Para equilibrar a produção com o meio ambiente, a técnica do Sistema de Plantio Direto é essencial. Ao semear sobre a palhada da cultura anterior, protegemos o solo contra a erosão, mantemos a umidade e reduzimos a emissão de carbono.</p>
+                <div class="highlight-box">
+                    Essa prática reduz em até 60% o uso de água devido à retenção de umidade natural.
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="content-img">
+                <img src="https://images.unsplash.com/photo-1625244724123-1f30455449dc?auto=format&fit=crop&q=80&w=600" alt="Trator tecnológico aplicando técnicas de precisão">
+            </div>
+            <div class="content-text">
+                <h2>3. Tecnologia de Precisão e Rotação de Culturas</h2>
+                <p>Alternar o cultivo do milho com leguminosas (como a soja) quebra o ciclo de pragas e enriquece o solo com nitrogênio naturalmente. Aliado a drones e sensores, o produtor aplica defensivos e fertilizantes apenas onde é estritamente necessário.</p>
+                <div class="highlight-box">
+                    A agricultura de precisão evita o desperdício e protege os lençóis freáticos.
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="content-img">
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=600" alt="Paisagem de fazenda com mata nativa preservada ao fundo">
+            </div>
+            <div class="content-text">
+                <h2>4. Preservação de Biomas e Reserva Legal</h2>
+                <p>O verdadeiro "Agro Forte" entende que a mata nativa e os recursos hídricos dentro das propriedades são aliados da lavoura. Áreas de Preservação Permanente (APPs) garantem a presença de polinizadores naturais que aumentam a eficiência da plantação.</p>
+                <div class="highlight-box">
+                    Produzir e conservar é o único caminho para garantir o sustento das próximas gerações.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="quiz-section" id="quiz">
+        <h2>Desafio Agro Raiz: Teste seus Conhecimentos</h2>
+        <p style="margin-bottom: 20px;">Será que você absorveu a importância do equilíbrio entre produção e meio ambiente?</p>
+        
+        <div class="quiz-container">
+            <div id="quiz-window">
+                <div class="question" id="question-text">Carregando pergunta...</div>
+                <div class="options" id="options-container">
+                    </div>
+                <button class="next-btn" id="next-button" onclick="nextQuestion()">Próxima</button>
+                <div style="clear:both;"></div>
+            </div>
+
+            <div class="score-container" id="score-window">
+                <h3>Quiz Concluído!</h3>
+                <p>Sua pontuação foi: <span id="points">0</span> de <span id="total-questions">3</span></p>
+                <p id="quiz-feedback"></p>
+                <button class="restart-btn" onclick="restartQuiz()">Refazer Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Agro Raiz - Agro Forte, Futuro Sustentável. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Dados do Quiz
+        const quizData = [
+            {
+                question: "Qual técnica ajuda a manter a umidade do solo e reduzir a erosão na plantação de milho?",
+                answers: [
+                    { text: "Queimada controlada", correct: false },
+                    { text: "Sistema de Plantio Direto", correct: true },
+                    { text: "Arado profundo contínuo", correct: false }
+                ]
+            },
+            {
+                question: "Por que a rotação de culturas (como intercalar milho e soja) é recomendada?",
+                answers: [
+                    { text: "Para descansar o maquinário agrícola", correct: false },
+                    { text: "Para quebrar o ciclo de pragas e fixar nitrogênio no solo", correct: true },
+                    { text: "Apenas para mudar a cor da plantação", correct: false }
+                ]
+            },
+            {
+                question: "Qual o principal objetivo do lema 'Agro Forte, Futuro Sustentável'?",
+                answers: [
+                    { text: "Aumentar o lucro ignorando as leis ambientais", correct: false },
+                    { text: "Equilibrar alta produtividade de alimentos com a preservação da natureza", correct: true },
+                    { text: "Parar de produzir para focar apenas em florestas", correct: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionTextElement = document.getElementById('question-text');
+        const optionsContainerElement = document.getElementById('options-container');
+        const nextButtonElement = document.getElementById('next-button');
+        const quizWindow = document.getElementById('quiz-window');
+        const scoreWindow = document.getElementById('score-window');
+        const pointsElement = document.getElementById('points');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        const feedbackElement = document.getElementById('quiz-feedback');
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            quizWindow.style.display = 'block';
+            scoreWindow.style.display = 'none';
+            nextButtonElement.style.display = 'none';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = quizData[currentQuestionIndex];
+            questionTextElement.innerText = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer.text;
+                button.classList.add('option-btn');
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
+                button.addEventListener('click', selectAnswer);
+                optionsContainerElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextButtonElement.style.display = 'none';
+            while (optionsContainerElement.firstChild) {
+                optionsContainerElement.removeChild(optionsContainerElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const isCorrect = selectedButton.dataset.correct === "true";
+            
+            if (isCorrect) {
+                selectedButton.classList.add('correct');
+                score++;
+            } else {
+                selectedButton.classList.add('wrong');
+                // Mostrar a correta para o usuário aprender
+                Array.from(optionsContainerElement.children).forEach(button => {
+                    if(button.dataset.correct === "true"){
+                        button.classList.add('correct');
+                    }
+                });
+            }
+
+            // Desabilitar todos os botões após a escolha
+            Array.from(optionsContainerElement.children).forEach(button => {
+                button.disabled = true;
+            });
+
+            nextButtonElement.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        function showScore() {
+            quizWindow.style.display = 'none';
+            scoreWindow.style.display = 'block';
+            pointsElement.innerText = score;
+            totalQuestionsElement.innerText = quizData.length;
+
+            if(score === quizData.length) {
+                feedbackElement.innerText = "Excelente! Você é um verdadeiro guardião do Agro Sustentável! 🌽🌱";
+            } else if (score >= 1) {
+                feedbackElement.innerText = "Muito bom! Você entende os conceitos básicos, continue estudando nossa causa.";
+            } else {
+                feedbackElement.innerText = "Que tal dar uma lida nas nossas seções informativas acima e tentar novamente?";
+            }
+        }
+
+        function restartQuiz() {
+            startQuiz();
+        }
+
+        // Inicializa o quiz ao carregar a página
+        startQuiz();
+    </script>
+</body>
+</html>
